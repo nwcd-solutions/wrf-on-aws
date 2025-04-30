@@ -67,7 +67,7 @@ download_wrf_install_package() {
 build_dir(){
   WRF_VERSION=4.2.2 
   WPS_VERSION=4.2
-  jobdir=/fsx/FORECASET/domains
+  jobdir=/fsx/FORECAST/domains
   source /apps/scripts/env.sh 3 2
   WPS_DIR=${HPC_PREFIX}/${HPC_COMPILER}/${HPC_MPI}/WRF-${WRF_VERSION}/WPS-${WPS_VERSION} 
   WRF_DIR=${HPC_PREFIX}/${HPC_COMPILER}/${HPC_MPI}/WRF-${WRF_VERSION}
