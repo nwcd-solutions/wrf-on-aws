@@ -2,7 +2,7 @@
 ###################################################################################
 # Setup Environmen Variable
 ###################################################################################
-source /shared/setup_env.sh
+source /apps/scripts/env.sh 3 2
 
 ulimit -s unlimited
 
@@ -12,11 +12,12 @@ NP=$(( $NP / 2 ))
 
 
 day=$(date +%Y%m%d)
-
+SHARED_DIR=/fsx
+TARGET_DIR=/fsx/FORECAST/domains/$1
 WPSWORK=${TARGET_DIR}/preproc
 WRFWORK=${TARGET_DIR}/run
 
-DIRGFS=${SHARED_DIR}/FORECAST/download/$day
+DIRGFS=${SHARED_DIR}/FORECAST/downloads/
 ###################################################################################
 # Print log function
 ###################################################################################
@@ -39,10 +40,8 @@ then
 fi
 log "INFO - geogrid.exe Completed"
 
-cd $DIRGFS
-cp -f GRIBFILE* $WPSWORK
-cd $WPSWORK
-
+./link_grib.csh ../../downloads/ > link_grid.$day.log 2>&1
+log "INFO - generate geog data"
 
 rm -f FILE*
 rm -f PFILE*
