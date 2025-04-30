@@ -3,7 +3,7 @@ set -euo pipefail
 
 # 本脚本下载最近一次 GFS 分析场（f000）GRIB2 文件，且留 6 小时裕量
 
-OUTDIR="./download"
+OUTDIR="/fsx/FORECAST/domains/downloads"
 mkdir -p "$OUTDIR"
 
 # 获取当前 UTC 时间，减去 6 小时，确保裕量
