@@ -98,6 +98,7 @@ case ${cfn_node_type} in
                 #download_wrf_install_package
 		sed -i s"|PREFIX=/fsx|PREFIX=/apps|g" /apps/scripts/env.sh
                 cd ${shared_folder}
+                wget https://raw.githubusercontent.com/nwcd-solutions/wrf-on-aws/refs/heads/master/scripts/get_gfs_from_opendata.sh -P ./bin
 		build_dir $domains_num 
  
                 
