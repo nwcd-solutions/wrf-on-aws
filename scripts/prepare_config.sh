@@ -1,16 +1,9 @@
 #!/bin/bash
-source /shared/setup_env.sh
 
-WPSWORK=${TARGET_DIR}/preproc
-WRFWORK=${TARGET_DIR}/run
-GEOG_DIR=${TARGET_DIR}/../geog
+#WPSWORK=${TARGET_DIR}/preproc
+#WRFWORK=${TARGET_DIR}/run
+#GEOG_DIR=${TARGET_DIR}/../geog
 
-cd ${SHARED_DIR}/FORECAST/download
-
-ulimit -s unlimited
-
-
-#Set-up current date as processing date variables
 DATA=$(date +%Y%m%d)'00'
 DATINA=$(date +%Y%m%d)
 
@@ -74,7 +67,8 @@ grbname1='WRF_FAT_'$DATA'.grb'
 
 #Preparing WRF and WPS config files
 
-cd $WRFWORK
+cd run
+$WRFWORK
 
 rm -f wrfout*
 rm -f rsl.*
@@ -217,7 +211,8 @@ cat<<EOF >namelist.input
 EOF
 
  
-cd $WPSWORK
+cd ../preproc
+$WPSWORK
 rm -f GRIBFILE*
 
 cat<<EOF >namelist.wps
