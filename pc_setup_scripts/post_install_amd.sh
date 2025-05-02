@@ -99,6 +99,8 @@ case ${cfn_node_type} in
 		sed -i s"|PREFIX=/fsx|PREFIX=/apps|g" /apps/scripts/env.sh
                 cd ${shared_folder}
                 wget https://raw.githubusercontent.com/nwcd-solutions/wrf-on-aws/refs/heads/master/scripts/get_gfs_from_opendata.sh -P ./bin
+		wget https://raw.githubusercontent.com/nwcd-solutions/wrf-on-aws/refs/heads/master/scripts/preprocess.sh -P ./bin
+                wget https://raw.githubusercontent.com/nwcd-solutions/wrf-on-aws/refs/heads/master/scripts/config_namelist.sh -P ./bin
 		build_dir $domains_num 
  
                 
